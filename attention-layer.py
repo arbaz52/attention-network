@@ -23,7 +23,7 @@ class AttentionLayer(Layer):
                              initializer = tf.random_uniform_initializer())
     
   def call(self, inputs):
-    hiddens, context = inputs, inputs
+    hiddens, context = inputs, inputs[-1]
     
     hw = tf.matmul(hiddens, self.w2)
     cw = tf.matmul(context, self.w1)
